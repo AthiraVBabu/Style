@@ -1,13 +1,3 @@
-# Copyright 2020 Erik Härkönen. All rights reserved.
-# This file is licensed to you under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License. You may obtain a copy
-# of the License at http://www.apache.org/licenses/LICENSE-2.0
-
-# Unless required by applicable law or agreed to in writing, software distributed under
-# the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-# OF ANY KIND, either express or implied. See the License for the specific language
-# governing permissions and limitations under the License.
-
 from sklearn.decomposition import FastICA, PCA, IncrementalPCA, MiniBatchSparsePCA, SparsePCA, KernelPCA
 import fbpca
 import numpy as np
@@ -19,7 +9,7 @@ class ICAEstimator():
     def __init__(self, n_components):
         self.n_components = n_components
         self.maxiter = 10000
-        self.whiten = True # ICA: whitening is essential, should not be skipped
+        self.whiten = True 
         self.transformer = FastICA(n_components, random_state=0, whiten=self.whiten, max_iter=self.maxiter)
         self.batch_support = False
         self.stdev = np.zeros((n_components,))
